@@ -1,12 +1,15 @@
 import { useState } from "react";
+import NavBar from "../components/NavBar";
+import Head from "next/head";
+import Seo from "../components/Seo";
+import { Button } from "@mui/material";
 
 export default function Home() {
-  const [counter, setCounter] = useState(0);
-
   return (
     <div>
-      <h1>hello {counter}</h1>
-      <button onClick={() => setCounter((prev) => prev + 1)}>+</button>
+      <Seo title="Home" />
+      <Button variant="contained">Contained</Button>
+      <h1>hello</h1>
     </div>
   );
 }
