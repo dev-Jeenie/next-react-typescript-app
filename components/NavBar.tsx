@@ -5,6 +5,7 @@ export default function NavBar() {
   const router = useRouter();
   return (
     <nav>
+      <img src="/vercel.svg" />
       <Link
         href="/"
         // style={{ color: router.pathname === "/" ? "red" : "blue" }}
