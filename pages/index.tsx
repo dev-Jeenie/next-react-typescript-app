@@ -1,17 +1,29 @@
-import { Button } from "@mui/material";
+import { Button, Grid } from "@mui/material";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
 
 export default function Home({ results }: { results: any }) {
+  console.log("results", results);
   return (
-    <div>
+    <div className="container">
       <Seo title="Home" />
       <Button variant="contained">Contained</Button>
-      {results?.map((movie: any) => (
-        <div key={movie.id}>
-          <h4>{movie.original_title}</h4>
-        </div>
-      ))}
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
+        {results?.map((movie: any) => (
+          <Grid item xs={2} sm={4} md={4} key={movie.id}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              width="300px"
+            />
+            <h4>{movie.original_title}</h4>
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 }
