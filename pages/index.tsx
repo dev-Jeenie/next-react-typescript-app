@@ -1,4 +1,6 @@
-import { Button, Grid } from "@mui/material";
+import { SpaceBar } from "@mui/icons-material";
+import { Button, Grid, Typography } from "@mui/material";
+import { Stack } from "@mui/system";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
@@ -8,7 +10,10 @@ export default function Home({ results }: { results: any }) {
   return (
     <div className="container">
       <Seo title="Home" />
-      <Button variant="contained">Contained</Button>
+      <Stack direction="row" spacing={2}>
+        <Typography variant="h3">NFT 자랑 게시판</Typography>
+        <Button variant="contained">Contained</Button>
+      </Stack>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}

@@ -13,10 +13,10 @@ export default function NavBar() {
         <ToggleButton value="home">Home</ToggleButton>
       </Link>
       <Link
-        href="/about"
-        style={{ color: router.pathname === "/about" ? "red" : "blue" }}
+        href="/buy"
+        style={{ color: router.pathname === "/buy" ? "red" : "blue" }}
       >
-        <ToggleButton value="about">About</ToggleButton>
+        <ToggleButton value="buy">buy NFT</ToggleButton>
       </Link>
       <Link
         href="/signin"
