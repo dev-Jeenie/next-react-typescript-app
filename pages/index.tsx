@@ -2,11 +2,25 @@ import { SpaceBar } from "@mui/icons-material";
 import { Button, Grid, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
 
 export default function Home({ results }: { results: any }) {
   console.log("results", results);
+  const router = useRouter();
+  const onClick = (id: string, title: string) => {
+    router.push(
+      {
+        pathname: `movies/${id}`,
+        query: {
+          title,
+        },
+      },
+      `movies/${id}`
+    );
+  };
   return (
     <div className="container">
       <Seo title="Home" />
@@ -20,12 +34,29 @@ export default function Home({ results }: { results: any }) {
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
         {results?.map((movie: any) => (
-          <Grid item xs={2} sm={4} md={4} key={movie.id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              width="300px"
-            />
-            <h4>{movie.original_title}</h4>
+          <Grid
+            key={movie.id}
+            item
+            xs={2}
+            sm={4}
+            md={4}
+            onClick={() => onClick(movie.id, movie.original_title)}
+          >
+            <Link
+              href={{
+                pathname: `movies/${movie.id}`,
+                query: {
+                  title: movie.original_title,
+                },
+              }}
+              as={`movies/${movie.id}`}
+            >
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                width="300px"
+              />
+              <h4>{movie.original_title}</h4>
+            </Link>
           </Grid>
         ))}
       </Grid>
