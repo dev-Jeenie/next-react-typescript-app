@@ -9,6 +9,7 @@ import Seo from "../components/Seo";
 
 export default function Home({ results }: { results: any }) {
   console.log("results", results);
+
   const router = useRouter();
   const onClick = (id: string, title: string) => {
     router.push(`movies/${title}/${id}`);
@@ -18,8 +19,7 @@ export default function Home({ results }: { results: any }) {
     <div className="container">
       <Seo title="Home" />
       <Stack direction="row" spacing={2}>
-        <Typography variant="h3">NFT 자랑 게시판</Typography>
-        <Button variant="contained">Contained</Button>
+        <Typography variant="h3">Home</Typography>
       </Stack>
       <Grid
         container
